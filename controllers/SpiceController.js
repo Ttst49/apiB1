@@ -28,13 +28,13 @@ const showSpice = async function show(req, res){
 
         .then(data => {
             if (!data)
-                res.status(404).send({ message: "Not found Pizza with name " + name });
+                res.status(404).send({ message: "Pas d'épice avec le nom " + name });
             else res.send(data);
         })
         .catch(err => {
             res
                 .status(500)
-                .send({ message: "Error retrieving Pizza with name=" + name });
+                .send({ message: "Erreur durant la récupération de l'épice: "+ name });
         });
 
 }
@@ -45,13 +45,13 @@ const editSpice = async function edit(req,res){
     let thisSpice = await Spice.findOneAndUpdate({name: name,price: price, description: description})
         .then(data => {
             if (!data)
-                res.status(404).send({ message: "Not found Pizza with name " + name });
+                res.status(404).send({ message: "Pas d'épice avec le nom " + name });
             else res.send(data);
         })
         .catch(err => {
             res
                 .status(500)
-                .send({ message: "Error retrieving Pizza with name=" + name });
+                .send({ message: "Erreur durant la récupération de l'épice: "+ name });
         });
 
 }
@@ -62,13 +62,13 @@ const removeSpice = async function remove(req,res){
     let thisSpice = await Spice.deleteOne({name: name})
         .then(data => {
             if (!data)
-                res.status(404).send({ message: "Not found Pizza with name " + name });
+                res.status(404).send({ message: "Pas d'épice avec le nom " + name });
             else res.send(data);
         })
         .catch(err => {
             res
                 .status(500)
-                .send({ message: "Error retrieving Pizza with name=" + name });
+                .send({ message: "Erreur durant la récupération de l'épice: "+ name });
         });
 
 }

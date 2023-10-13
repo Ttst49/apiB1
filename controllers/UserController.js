@@ -54,7 +54,7 @@ const logout = async function logout(req,res){
 
     if (req.session.isAuth){
         req.session.destroy()
-        res.sendStatus(200).send("Déconnecté")
+        res.send("Déconnecté")
     }else {
         res.send("tu n'es pas connecté")
     }
